@@ -27,7 +27,7 @@ Source1:	%{name}-%{version}-apache.conf.bz2
 Source2:	vocplogo16x16.png
 Source3:	vocplogo32x32.png
 Source4:	vocplogo48x48.png
-PreReq:		rpm-helper
+Requires(post,preun):	rpm-helper
 Requires:	perl
 Requires:	perl-Modem-Vgetty >= 0.04
 Requires:	perl-XML-Mini >= 1.2.7
