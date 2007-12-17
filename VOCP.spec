@@ -42,7 +42,6 @@ Requires:	mgetty >= 1.1.30
 Requires:	festival
 BuildRequires:	perl-devel mgetty-voice >= 1.1.30
 BuildRequires:	perl-XML-Mini >= 1.2.7
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The VOCP system is a complete voice messaging solution, featuring
