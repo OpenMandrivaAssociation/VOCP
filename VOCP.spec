@@ -122,7 +122,6 @@ install -d %{buildroot}/%{_sysconfdir}/logrotate.d
 install -d %{buildroot}/%{_datadir}/vocp/{bin,lib,run}
 install -d %{buildroot}/%{_datadir}/vocp/voice/commands
 install -d %{buildroot}/%{_sysconfdir}/httpd/conf.d
-install -d %{buildroot}/%{_menudir}
 install -d %{buildroot}/%{_liconsdir}
 install -d %{buildroot}/%{_iconsdir}
 install -d %{buildroot}/%{_miconsdir}
@@ -200,43 +199,6 @@ ln -s %{_datadir}/vocp/bin/vocphax.pl %{buildroot}/%{_bindir}/vocphax
 
 # fix menu stuff
 
-cat > %{buildroot}/%{_menudir}/%{name} << EOF
-?package(%{name}): \
-command="%{_bindir}/xvocp" \
-needs="X11" \
-icon="vocp.png" \
-section="Applications/Communications" \
-title="VOCP (VOCP Graphical voice message retrieval)" \
-longtitle="Xvocp presents a graphical user interface to the contents of voice mail boxes." \
-xdg="true"
-
-?package(%{name}): \
-command="%{_bindir}/boxconf" \
-needs="X11" \
-icon="vocp.png" \
-section="Applications/Communications" \
-title="Boxconf (VOCP Box Configuration interface)" \
-longtitle="Boxconf presents a graphical user interface used to administer the VOCP system box configuration." \
-xdg="true"
-
-?package(%{name}): \
-command="%{_bindir}/callcenter" \
-needs="X11" \
-icon="vocp.png" \
-section="Applications/Communications" \
-title="Callcenter (VOCP Call Center)" \
-longtitle="The VOCP call center is meant to be an \"always on\" call monitor and to give quick access to other VOCP GUIs and your call log." \
-xdg="true"
-
-?package(%{name}): \
-command="%{_bindir}/vocphax" \
-needs="X11" \
-icon="vocp.png" \
-section="Applications/Communications" \
-title="VOCPhax (VOCP Fax Viewer and Sender GUI)" \
-longtitle="VOCPhax presents a (hopefully) friendly and intuitive graphical interface to view and send faxes." \
-xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-xvocp.desktop << EOF
@@ -306,16 +268,6 @@ EOF
 chmod 755 %{buildroot}/%{_datadir}/vocp/bin/%{name}-web
 
 # install menu entry.
-cat > %{buildroot}/%{_menudir}/%{name}-web << EOF
-?package(%{name}-web): \
-command="%{_datadir}/vocp/bin/%{name}-web 1>/dev/null 2>/dev/null" \
-needs="X11" \
-icon="vocp.png" \
-section="Applications/Communications" \
-title="VOCPweb (VOCP Web Remote Message Retrieval)" \
-longtitle="VOCPweb allows you to log on to the VOCP voice messaging system and retrieve messages through a browser." \
-xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}-web.desktop << EOF
@@ -329,7 +281,6 @@ Type=Application
 Categories=X-MandrivaLinux-MoreApplications-Communications;
 EOF
 
-chmod 644 %{buildroot}/%{_menudir}/%{name}*
 
 install -m644 %{SOURCE2} %{buildroot}/%{_miconsdir}/vocp.png
 install -m644 %{SOURCE3} %{buildroot}/%{_iconsdir}/vocp.png
@@ -425,7 +376,6 @@ chmod 644 %{buildroot}/%{_sysconfdir}/logrotate.d/callcenter
 %{perl_vendorlib}/auto/VOCP
 %{_mandir}/man3*/*
 %attr(0755,root,root) %{_bindir}/*
-%attr(0644,root,root) %{_menudir}/%{name}
 %attr(0644,root,root) %{_datadir}/applications/mandriva-xvocp.desktop
 %attr(0644,root,root) %{_datadir}/applications/mandriva-boxconf.desktop
 %attr(0644,root,root) %{_datadir}/applications/mandriva-callcenter.desktop
@@ -450,6 +400,5 @@ chmod 644 %{buildroot}/%{_sysconfdir}/logrotate.d/callcenter
 %dir %attr(1777,root,vocp) %{_datadir}/vocp/vocpweb/sounds
 %attr(0644,root,root) %{_datadir}/vocp/vocpweb/sounds/index.html
 %attr(0755,root,root) %{_datadir}/vocp/bin/%{name}-web
-%attr(0644,root,root) %{_menudir}/%{name}-web
 %attr(0644,root,root)%{_datadir}/applications/mandriva-%{name}-web.desktop
 
