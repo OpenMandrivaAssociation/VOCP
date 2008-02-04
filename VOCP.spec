@@ -56,7 +56,7 @@ retrieval, call center and faxing GUIs, as well as the core VOCP
 voice messaging system and the VOCPweb web interface.  
 
 %package	web
-Summary:	VOCPweb - Part of the VOCP voice messaging system.
+Summary:	VOCPweb - Part of the VOCP voice messaging system
 Group:		System/Servers
 Requires:	%{name} = %{version}
 Requires:	perl-Crypt-CBC >= 2.08
