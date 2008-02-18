@@ -15,7 +15,7 @@
 %define version	0.9.3
 %define release	%mkrel 5
 
-Summary:	The VOCP system is a complete voice messaging solution
+Summary:	Complete voice messaging solution
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
