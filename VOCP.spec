@@ -300,18 +300,26 @@ chmod 644 %{buildroot}/%{_sysconfdir}/logrotate.d/callcenter
 %pre
 %_pre_useradd vocp /var/spool/voice /bin/true
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
 %postun
 %_postun_userdel vocp
+%if %mdkversion < 200900
 %clean_menus
+%endif
 
+%if %mdkversion < 200900
 %post		web
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun		web
 %clean_menus
+%endif
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
