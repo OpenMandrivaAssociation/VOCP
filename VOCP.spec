@@ -13,7 +13,7 @@
 
 %define name	VOCP
 %define version	0.9.3
-%define release	%mkrel 9
+%define release	%mkrel 10
 
 Summary:	Complete voice messaging solution
 Name:		%{name}
@@ -62,7 +62,7 @@ Requires:	%{name} = %{version}
 Requires:	perl-Crypt-CBC >= 2.08
 Requires:	perl-Crypt-Blowfish
 Requires:	perl-Crypt-Rijndael >= 0.05
-Requires:	apache2
+Requires:	apache
 
 %description	web
 The VOCP web interface, which permits users to retrieve voicemail
