@@ -13,7 +13,7 @@
 
 %define name	VOCP
 %define version	0.9.3
-%define release	%mkrel 11
+%define release	12
 
 Summary:	Complete voice messaging solution
 Name:		%{name}
