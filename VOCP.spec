@@ -21,7 +21,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		System/Servers
-URL:		http://www.vocpsystem.com/
+URL:		https://www.vocpsystem.com/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-%{version}-apache.conf.bz2
 Source2:	vocplogo16x16.png
